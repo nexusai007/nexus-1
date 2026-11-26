@@ -219,6 +219,13 @@ footer .foot{max-width:1120px;margin:auto;display:flex;justify-content:space-bet
 <form action="https://formspree.io/f/xvkkjewo" method="POST">
 <input type="hidden" name="_subject" value="Nexus Layer AI — Investor Relations Request">
 <input type="hidden" name="lead_source" value="NexusLayer /investors/ landing page">
+<input type="hidden" name="utm_source" id="lead-utm-source">
+<input type="hidden" name="utm_medium" id="lead-utm-medium">
+<input type="hidden" name="utm_campaign" id="lead-utm-campaign">
+<input type="hidden" name="utm_content" id="lead-utm-content">
+<input type="hidden" name="utm_term" id="lead-utm-term">
+<input type="hidden" name="referrer_url" id="lead-referrer">
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px" aria-label="Leave this field empty">
 <input type="hidden" name="_next" value="https://nexuslayer.io/investors/thank-you/">
 <div class="field"><label for="investor-name">Full name *</label><input id="investor-name" name="name" autocomplete="name" required placeholder="Your name"></div>
 <div class="field"><label for="investor-email">Business email *</label><input id="investor-email" type="email" name="email" autocomplete="email" required placeholder="you@fund.com"></div>
@@ -248,4 +255,22 @@ footer .foot{max-width:1120px;margin:auto;display:flex;justify-content:space-bet
 </div></section>
 </main>
 <footer><div class="foot"><span>© 2026 Nexus Layer AI. All rights reserved.</span><span><a href="/">Home</a> · <a href="mailto:nexusa1foundation@gmail.com">Contact</a></span></div><div class="wrap" style="padding:18px 0 0"><p class="disclaimer">This page is for general informational purposes only. It is not an offer to sell or a solicitation to buy any security, token or other financial instrument, and it is not investment advice. Any investment opportunity, if made available, will be described only in definitive offering documents and only to eligible persons in jurisdictions where legally permitted. Projections and roadmap statements are forward-looking, involve substantial uncertainty and are not guarantees of future performance.</p></div></footer>
+<script>
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  const fields = {
+    "utm_source": "lead-utm-source",
+    "utm_medium": "lead-utm-medium",
+    "utm_campaign": "lead-utm-campaign",
+    "utm_content": "lead-utm-content",
+    "utm_term": "lead-utm-term"
+  };
+  Object.entries(fields).forEach(([parameter, id]) => {
+    const input = document.getElementById(id);
+    if (input) input.value = params.get(parameter) || "";
+  });
+  const referrer = document.getElementById("lead-referrer");
+  if (referrer) referrer.value = document.referrer || "";
+})();
+</script>
 </body></html>
