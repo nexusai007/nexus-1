@@ -35,17 +35,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Nexus Layer AI",
-  "url": "https://nexuslayer.io/",
-  "logo": "https://nexuslayer.io/nexus_logo_sharpened.jpg",
-  
-  "description": "The foundational Layer-1 protocol enabling autonomous AI agents to execute, coordinate, transact, and exchange value across the machine economy.",
-  "founder": [
-    {"@type": "Person", "name": "Rick Plotnikoff"}
-  ],
-  "industry": "Artificial Intelligence & Blockchain Infrastructure",
-  "keywords": "Top businesses to invest in, New leader in AI, Autonomous AI commerce"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nexuslayer.io/#organization",
+      "name": "Nexus Layer AI",
+      "url": "https://nexuslayer.io/",
+      "description": "Nexus Layer AI is building infrastructure for autonomous AI commerce, including agent execution, coordination, data ownership and value settlement.",
+      "founder": {
+        "@type": "Person",
+        "name": "Rick Plotnikoff"
+      },
+      "email": "nexusa1foundation@gmail.com"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nexuslayer.io/#website",
+      "url": "https://nexuslayer.io/",
+      "name": "Nexus Layer AI",
+      "publisher": {
+        "@id": "https://nexuslayer.io/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
 }
 </script>
 
