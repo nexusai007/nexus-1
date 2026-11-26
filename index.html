@@ -6,11 +6,15 @@
 <link rel="canonical" href="https://nexuslayer.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0a0e17">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:site_name" content="Nexus Layer AI">
+<meta property="og:locale" content="en_US">
 
 <!-- Google Search Console Verification -->
 <meta name="google-site-verification" content="uYn_Ieqb8W5_aSA_nVQmD2Hqk3tzK1LX7sRdyBNFtmM" />
 
-<!-- Top Tier Investor & Venture Capital SEO Meta Tags -->
+<!-- Search metadata -->
 <title>Nexus Layer AI | Infrastructure for Autonomous AI Commerce</title>
 <meta name="title" content="Nexus Layer AI | Infrastructure for Autonomous AI Commerce">
 <meta name="description" content="Nexus Layer AI is building Layer-1 infrastructure for autonomous AI commerce, including agent execution, coordination, data ownership and value settlement.">
@@ -55,6 +59,15 @@
         "@id": "https://nexuslayer.io/#organization"
       },
       "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nexuslayer.io/#webpage",
+      "url": "https://nexuslayer.io/",
+      "name": "Nexus Layer AI | Infrastructure for Autonomous AI Commerce",
+      "isPartOf": { "@id": "https://nexuslayer.io/#website" },
+      "about": { "@id": "https://nexuslayer.io/#organization" },
+      "inLanguage": "en"
     }
   ]
 }
@@ -71,9 +84,12 @@
     --border-color: #1f2937;
   }
   
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  .skip-link { position: absolute; left: -9999px; top: 0; z-index: 2000; padding: .75rem 1rem; background: #fff; color: #111827; }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent-blue); outline-offset: 3px; }
   
   body {
     margin: 0;
@@ -108,12 +124,8 @@
     color: var(--text-light);
   }
   
-  .logo-img {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-    border-radius: 4px;
-  }
+  .logo-mark { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; color: #07111d; font-weight: 900; font-size: 1.4rem; background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); }
+  .menu-toggle { display: none; border: 1px solid var(--border-color); border-radius: 6px; background: var(--card-bg); color: var(--text-light); padding: .55rem .8rem; font: inherit; cursor: pointer; }
   
   nav ul {
     display: flex;
@@ -215,13 +227,13 @@
   
   .grid-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 2rem;
   }
   
   .grid-2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
     gap: 2rem;
   }
   
@@ -300,37 +312,42 @@
     font-family: inherit;
   }
 
-  footer {
-    border-top: 1px solid var(--border-color);
-    padding: 2.5rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
+  .faq-list { display: grid; gap: 1rem; }
+  .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; }
+  .faq-item h3 { margin: 0 0 .5rem; font-size: 1.15rem; }
+  .faq-item p { margin: 0; color: var(--text-muted); }
+  .source-link { color: var(--accent-blue); text-decoration: underline; text-underline-offset: 3px; }
+  footer { border-top: 1px solid var(--border-color); padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: .9rem; gap: 1rem; }
   @media(max-width: 768px) {
-    header { padding: 1rem 1.5rem; }
-    nav ul { display: none; }
+    header { padding: 1rem 1.5rem; flex-wrap: wrap; }
+    .menu-toggle { display: inline-flex; }
+    header nav { width: 100%; }
+    nav ul { display: none; flex-direction: column; gap: .75rem; padding: 1rem 0 .25rem; }
+    nav.is-open ul { display: flex; }
     .section { padding: 3rem 1.5rem; }
     h1 { font-size: 2.3rem; }
+    .btn-group { flex-wrap: wrap; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
   }
+  @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header>
     <a href="#nexus" class="logo-container">
-      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="Nexus Layer AI Logo" class="logo-img">
+      <span class="logo-mark" aria-hidden="true">N</span>
       <span>NEXUS LAYER AI</span>
     </a>
-    <nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+    <nav id="primary-navigation" aria-label="Main navigation">
       <ul>
         <li><a href="#nexus">Nexus</a></li>
         <li><a href="#infrastructure">Infrastructure</a></li>
         <li><a href="#problem">The Problem</a></li>
         <li><a href="#datachain">DataChain</a></li>
+        <li><a href="#faq">FAQs</a></li>
         <li><a href="#market">Market & Projections</a></li>
         <li><a href="#leadership">Leadership</a></li>
         <li><a href="#deck">Investor Deck</a></li>
@@ -339,7 +356,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- HERO SECTION -->
     <section class="hero" id="nexus">
       <div class="tagline-pill">The Economic Operating System For AI</div>
@@ -426,20 +443,32 @@
       </div>
     </section>
 
+    <!-- FREQUENTLY ASKED QUESTIONS -->
+    <section class="section" id="faq" aria-labelledby="faq-heading">
+      <div class="section-title">FAQs</div>
+      <h2 class="section-heading" id="faq-heading">Frequently Asked Questions About Nexus Layer AI</h2>
+      <div class="faq-list">
+        <article class="faq-item"><h3>What is Nexus Layer AI?</h3><p>Nexus Layer AI is developing infrastructure for autonomous AI commerce, with a focus on agent execution, coordination, data ownership and value settlement.</p></article>
+        <article class="faq-item"><h3>What does the Nexus infrastructure aim to support?</h3><p>The proposed infrastructure includes execution environments, multi-agent coordination, machine-to-machine settlement, peer-to-peer communication, trust and reputation mechanisms, and cross-chain interoperability.</p></article>
+        <article class="faq-item"><h3>What is DataChain?</h3><p>DataChain is the Nexus concept for verifiable data provenance and privacy-preserving data use, including cryptographic records and zero-knowledge proof techniques.</p></article>
+        <article class="faq-item"><h3>How can I contact the Nexus Layer AI team?</h3><p>Use the contact form on this page or email <a class="source-link" href="mailto:nexusa1foundation@gmail.com">nexusa1foundation@gmail.com</a>.</p></article>
+      </div>
+    </section>
+
     <!-- MARKET & PROJECTIONS SECTION -->
     <section class="section" id="market">
       <div class="section-title">Market & Projections</div>
       <h2 class="section-heading">Capturing The Machine Economy</h2>
       <div class="grid-3">
         <div class="card">
-          <div class="card-num">$15T+</div>
-          <h3>Projected AI Market</h3>
-          <p>The total economic value unlocked by enterprise and autonomous AI systems over the next decade.</p>
+          <div class="card-num">Up to $15.7T</div>
+          <h3>Potential Global GDP Impact</h3>
+          <p>PwC estimated in 2017 that AI could add up to $15.7 trillion to global GDP in 2030. This is a modeled potential impact, not the size of the AI market or a guaranteed outcome. <a class="source-link" href="https://www.pwc.com/gx/en/news-room/docs/report-pwc-ai-analysis-sizing-the-prize.pdf" target="_blank" rel="noopener noreferrer">Read the PwC report</a>.</p>
         </div>
         <div class="card">
           <div class="card-num">10B+</div>
-          <h3>Autonomous Agents</h3>
-          <p>Expected active software agents executing independent economic tasks by 2030.</p>
+          <h3>Potential Autonomous Agents</h3>
+          <p>Gartner predicted in September 2026 that more than 10 billion autonomous agents created by people, companies and governments could exist by the end of 2030. <a class="source-link" href="https://www.gartner.com/en/newsroom/press-releases/2026-09-15-gartner-unveils-top-strategic-predictions-for-2027-and-beyond" target="_blank" rel="noopener noreferrer">Read Gartner’s prediction</a>.</p>
         </div>
         <div class="card">
           <div class="card-num">Sub-Cent</div>
@@ -504,15 +533,15 @@
       <form class="contact-form" action="https://formspree.io/f/xvkkjewo" method="POST">
         <div class="form-group">
           <label for="name">Your Name *</label>
-          <input type="text" id="name" name="name" required placeholder="John Doe">
+          <input type="text" id="name" name="name" autocomplete="name" required placeholder="John Doe">
         </div>
         <div class="form-group">
           <label for="email">Email Address *</label>
-          <input type="email" id="email" name="email" required placeholder="john@company.com">
+          <input type="email" id="email" name="email" autocomplete="email" required placeholder="john@company.com">
         </div>
         <div class="form-group">
           <label for="phone">Cell Phone #</label>
-          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+1 (555) 000-0000">
         </div>
         <div class="form-group">
           <label for="message">Message *</label>
@@ -528,5 +557,25 @@
     <div>Contact: nexusa1foundation@gmail.com</div>
   </footer>
 
+<script>
+  (() => {
+    const button = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("#primary-navigation");
+    if (!button || !nav) return;
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      nav.classList.toggle("is-open", !expanded);
+      button.textContent = expanded ? "Menu" : "Close";
+    });
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        nav.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+        button.textContent = "Menu";
+      }
+    });
+  })();
+</script>
 </body>
 </html>
